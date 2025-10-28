@@ -6,11 +6,13 @@ import {motion} from "framer-motion";
 
 interface Props {
     onClose: () => void;
+    animationKey: string;
 }
 
-const NavSearch: FC<Props> = ({ onClose }) => {
+const NavSearch: FC<Props> = ({ onClose, animationKey }) => {
     return (
         <motion.div
+            key={animationKey}
             className={'w-full'}
             initial={{
                 width: 0,
@@ -20,13 +22,13 @@ const NavSearch: FC<Props> = ({ onClose }) => {
                 width: '100%',
                 opacity: 1
             }}
-            transition={{
-                duration: 0.3,
-                ease: 'easeOut',
-            }}
             exit={{
                 width: 0,
                 opacity: 0
+            }}
+            transition={{
+                duration: 0.2,
+                ease: 'easeOut',
             }}
         >
             <div className={'w-full flex items-center justify-center'}>
